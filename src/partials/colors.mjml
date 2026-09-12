@@ -1,0 +1,44 @@
+<!--
+  Paleta del repo, como mj-class reutilizables.
+
+  ORIGEN: extraídos de `banner-monto`, el primer fragmento real. Son los
+  valores que ese diseño ya usaba, NO una paleta oficial validada contra el
+  brandbook BCP. Antes de tratarlos como el estándar del banco hay que
+  confirmarlos con diseño. Si aparece un color nuevo en otro fragmento, se
+  agrega acá con nombre semántico en vez de repetir el hex.
+
+  ── Cómo se usan ──────────────────────────────────────────────────────────
+      <mj-head>
+        <mj-include path="@partials/colors.mjml" />
+      </mj-head>
+      ...
+      <mj-text mj-class="txt-oscuro">Hola</mj-text>
+
+  A diferencia de la tipografía, acá NO hace falta repetir el valor explícito
+  en cada componente: MJML resuelve las mj-class en tiempo de compilación y el
+  color termina como estilo inline en el HTML, así que sobrevive a AED.
+  (La font-family sí hay que repetirla porque depende de un <link> en el
+  <head>, que no viaja. Ver convenciones-mjml.md, reglas 3 y 4.)
+
+  OJO: cada mj-class fija un atributo concreto. `bg-*` setea background-color,
+  `txt-*` setea color, `borde-*` setea border. Aplicar una `bg-*` a un mj-text
+  le pone fondo al texto, no lo colorea.
+-->
+<mj-attributes>
+  <!-- Fondos -->
+  <mj-class name="bg-pagina" background-color="#F2F4F8" />
+  <!-- gris que rodea la tarjeta -->
+  <mj-class name="bg-tarjeta" background-color="#FFFFFF" />
+  <!-- la tarjeta blanca del contenido -->
+  <mj-class name="bg-destacado" background-color="#EAF1FB" />
+  <!-- celeste de bloques destacados -->
+
+  <!-- Texto -->
+  <mj-class name="txt-oscuro" color="#202E44" />
+  <!-- texto corriente -->
+  <mj-class name="txt-azul" color="#002A8D" />
+  <!-- cifras y énfasis -->
+
+  <!-- Bordes -->
+  <mj-class name="borde-destacado" border="1px solid #70A9FF" />
+</mj-attributes>

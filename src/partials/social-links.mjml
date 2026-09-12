@@ -1,0 +1,20 @@
+<!--
+  Barra de redes sociales reutilizable (contenido de body).
+
+  VACÍO A PROPÓSITO. Falta definir:
+    - qué redes entran y en qué orden
+    - los íconos aprobados y en qué CDN de BCP quedan alojados
+    - las URLs oficiales de cada cuenta y sus parámetros de tracking
+
+  Nada de eso está decidido todavía, así que no hay contenido que versionar.
+
+  Este archivo NO se puede incluir mientras esté así: un mj-include a un
+  archivo sin elemento raíz hace fallar el build. Al completarlo, el contenido
+  debe ser un único <mj-section> siguiendo docs/convenciones-mjml.md.
+
+  Uso, una vez completado:
+
+    <mj-body>
+      <mj-include path="@partials/social-links.mjml" />
+    </mj-body>
+-->

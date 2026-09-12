@@ -1,0 +1,56 @@
+<mjml>
+  <mj-head>
+    <mj-include path="@partials/fonts.mjml" />
+    <mj-include path="@partials/colors.mjml" />
+  </mj-head>
+
+  <mj-body mj-class="bg-gris-claro" width="600px">
+    <!-- text-align="center" porque la columna es de 416px dentro de 600px:
+         centra la tarjeta. Ver docs/convenciones-mjml.md, regla 6. -->
+    <mj-section mj-class="bg-blanco" padding="0px" text-align="center">
+      <mj-column
+        mj-class="bg-celeste borde-azul-claro"
+        width="416px"
+        border-radius="12px"
+        padding="16px"
+      >
+        <mj-text
+          mj-class="txt-azul-oscuro"
+          align="center"
+          font-family="Flexo, Arial, Helvetica, sans-serif"
+          font-weight="700"
+          font-size="16px"
+          line-height="24px"
+          padding="0px"
+        >
+          Tienes un monto preaprobado de:
+        </mj-text>
+        <!-- REVISAR: padding="10px 25px" era el default de MJML, ahora explícito.
+             Confirmar si ese es el espaciado que pide el diseño. -->
+        <mj-text
+          mj-class="txt-azul"
+          align="center"
+          font-family="Flexo, Arial, Helvetica, sans-serif"
+          font-weight="700"
+          font-size="48px"
+          line-height="56px"
+          padding="10px 25px"
+        >
+          {S/XXXX}
+        </mj-text>
+        <!-- REVISAR: los 25px laterales venían del default de MJML. -->
+        <mj-text
+          mj-class="txt-azul-oscuro"
+          align="center"
+          font-family="Flexo, Arial, Helvetica, sans-serif"
+          font-weight="400"
+          font-size="16px"
+          line-height="24px"
+          padding="0px 25px"
+        >
+          Vigente hasta el 31 de enero de 2026.
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

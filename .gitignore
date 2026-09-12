@@ -1,0 +1,11 @@
+node_modules/
+
+# Logs y temporales
+*.log
+npm-debug.log*
+.DS_Store
+
+# El HTML compilado SÍ se versiona a propósito: otros equipos copian
+# directo desde dist/ sin tener que instalar ni compilar nada.
+# Descomentar solo si en algún momento se decide dejar de versionarlo.
+# dist/

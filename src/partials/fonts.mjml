@@ -1,0 +1,61 @@
+<!--
+  Tipografía del repo: Flexo (fuente corporativa BCP).
+
+  Los archivos están en src/assets/fonts/:
+    Flexo-Regular-webfont.woff2  -> font-weight: 400
+    Flexo-Demi-webfont.woff2     -> font-weight: 600
+    Flexo-Bold-webfont.woff2     -> font-weight: 700
+
+  El nombre de familia CSS es "Flexo" (leído de la tabla `name` de los .woff2).
+  OJO: el Demi trae como nombre legacy "Flexo Light Bold"; ignorarlo, la
+  familia tipográfica declarada es "Flexo" con subfamilia "Demi". No usar
+  "Flexo Light" en ningún font-family.
+
+  ── Stack obligatorio en todo fragmento ───────────────────────────────────
+      font-family="Flexo, Arial, Helvetica, sans-serif"
+
+  Flexo es una MEJORA PROGRESIVA, no algo con lo que se pueda contar:
+  Gmail (web y app), Outlook de Windows y Yahoo NO cargan webfonts y siempre
+  van a renderizar Arial. Sí la cargan Apple Mail, iOS Mail, Outlook para Mac
+  y Thunderbird. Por eso el diseño tiene que funcionar igual en Arial.
+
+  ── PENDIENTE: hosting ────────────────────────────────────────────────────
+  Los .woff2 del repo no le sirven a ningún cliente de correo: tienen que
+  estar publicados en una URL HTTPS del CDN de BCP. Falta definirla.
+
+  ── PENDIENTE: @font-face ─────────────────────────────────────────────────
+  El @font-face NO puede vivir en el fragmento: va en un <style>, y AED
+  reescribe o elimina los style tags (ver convenciones-mjml.md, regla 3).
+  Tiene que declararse una sola vez en el <head> de la PLANTILLA de AED:
+
+      @font-face {
+        font-family: 'Flexo';
+        src: url('https://CDN-PENDIENTE/Flexo-Regular-webfont.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: 'Flexo';
+        src: url('https://CDN-PENDIENTE/Flexo-Demi-webfont.woff2') format('woff2');
+        font-weight: 600;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: 'Flexo';
+        src: url('https://CDN-PENDIENTE/Flexo-Bold-webfont.woff2') format('woff2');
+        font-weight: 700;
+        font-style: normal;
+      }
+
+  Cuando exista la URL del CDN, acá va además un <mj-font> para que la vista
+  previa standalone también muestre Flexo.
+
+  Los mj-attributes de abajo son la red de seguridad para la previsualización.
+  NO reemplazan escribir el font-family explícito en cada mj-text / mj-button:
+  el <head> no viaja cuando el fragmento se pega en AED (regla 4).
+-->
+<mj-attributes>
+  <mj-all font-family="Flexo, Arial, Helvetica, sans-serif" />
+  <mj-text font-family="Flexo, Arial, Helvetica, sans-serif" />
+  <mj-button font-family="Flexo, Arial, Helvetica, sans-serif" />
+</mj-attributes>
