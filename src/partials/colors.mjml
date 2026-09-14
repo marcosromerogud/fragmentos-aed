@@ -12,7 +12,7 @@
         <mj-include path="@partials/colors.mjml" />
       </mj-head>
       ...
-      <mj-text mj-class="txt-oscuro">Hola</mj-text>
+      <mj-text mj-class="txt-azul-oscuro">Hola</mj-text>
 
   A diferencia de la tipografía, acá NO hace falta repetir el valor explícito
   en cada componente: MJML resuelve las mj-class en tiempo de compilación y el
@@ -26,19 +26,27 @@
 -->
 <mj-attributes>
   <!-- Fondos -->
-  <mj-class name="bg-pagina" background-color="#F2F4F8" />
+  <mj-class name="bg-gris-claro" background-color="#F2F4F8" />
   <!-- gris que rodea la tarjeta -->
-  <mj-class name="bg-tarjeta" background-color="#FFFFFF" />
+  <mj-class name="bg-blanco" background-color="#FFFFFF" />
   <!-- la tarjeta blanca del contenido -->
-  <mj-class name="bg-destacado" background-color="#EAF1FB" />
+  <mj-class name="bg-celeste" background-color="#EAF1FB" />
   <!-- celeste de bloques destacados -->
+  <mj-class name="bg-azul" background-color="#002A8D" />
+  <!-- mismo azul que txt-azul, ahora de fondo: cierre-consumo -->
+  <mj-class name="bg-azul-marino" background-color="#001F5A" />
+  <!-- cierre-bex -->
+  <mj-class name="bg-vino" background-color="#360827" />
+  <!-- cierre-enalta -->
 
   <!-- Texto -->
-  <mj-class name="txt-oscuro" color="#202E44" />
+  <mj-class name="txt-azul-oscuro" color="#202E44" />
   <!-- texto corriente -->
   <mj-class name="txt-azul" color="#002A8D" />
   <!-- cifras y énfasis -->
+  <mj-class name="txt-blanco" color="#FFFFFF" />
+  <!-- texto sobre fondos oscuros: cierres -->
 
   <!-- Bordes -->
-  <mj-class name="borde-destacado" border="1px solid #70A9FF" />
+  <mj-class name="borde-azul-claro" border="1px solid #70A9FF" />
 </mj-attributes>

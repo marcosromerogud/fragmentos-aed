@@ -24,9 +24,10 @@
   estar publicados en una URL HTTPS del CDN de BCP. Falta definirla.
 
   ── PENDIENTE: @font-face ─────────────────────────────────────────────────
-  El @font-face NO puede vivir en el fragmento: va en un <style>, y AED
-  reescribe o elimina los style tags (ver convenciones-mjml.md, regla 3).
-  Tiene que declararse una sola vez en el <head> de la PLANTILLA de AED:
+  El @font-face NO va en el fragmento: el <style> de los fragmentos es solo
+  para media queries (ver convenciones-mjml.md, regla 3), y la fuente es de
+  todo el correo, no de un fragmento. Se declara una sola vez en el
+  <head> de la PLANTILLA de AED:
 
       @font-face {
         font-family: 'Flexo';

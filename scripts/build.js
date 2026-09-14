@@ -97,6 +97,29 @@ function findUndefinedClasses(srcFile) {
 }
 
 /**
+ * En AED el fragmento se pega dentro de una plantilla: el <head> no viaja, y
+ * con él se perderían las media queries de MJML (sin ellas las columnas se
+ * apilan hasta en desktop). Se emiten los <style> del head delante del
+ * contenido del body, que es como están armados los cierres de references/.
+ *
+ * @param {string} html documento completo que devuelve MJML
+ * @returns {string} HTML listo para pegar en AED
+ */
+function toPasteable(html) {
+  const head = html.match(/<head>([\s\S]*?)<\/head>/)[1];
+  const body = html.match(/<body[^>]*>([\s\S]*?)<\/body>/)[1];
+
+  const styles = head
+    .replace(/<title>[\s\S]*?<\/title>/, '')
+    .replace(/<!--\[if !mso\]><!-->[\s\S]*?<!--<!\[endif\]-->/, '')
+    .replace(/<meta[^>]*>/g, '')
+    .replace(/<!--\[if mso\]>\s*<noscript>[\s\S]*?<!\[endif\]-->/, '')
+    .replace(/\n\s*\n/g, '\n');
+
+  return `${styles.trim()}\n${body.trim()}\n`;
+}
+
+/**
  * Compila un .mjml y escribe el .html equivalente en dist/.
  * @param {string} srcFile ruta absoluta al .mjml
  * @returns {{ ok: boolean, warnings: number }}
@@ -124,7 +147,7 @@ function buildFile(srcFile) {
     }
 
     fs.mkdirSync(path.dirname(outFile), { recursive: true });
-    fs.writeFileSync(outFile, html, 'utf8');
+    fs.writeFileSync(outFile, toPasteable(html), 'utf8');
 
     console.log(`  ok     ${label} -> ${path.relative(ROOT_DIR, outFile)}`);
     return { ok: true, warnings: errors.length };

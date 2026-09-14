@@ -1,0 +1,132 @@
+<mjml>
+  <mj-head>
+    <mj-include path="@partials/fonts.mjml" />
+    <mj-include path="@partials/colors.mjml" />
+    <!-- Clases con prefijo del fragmento: si se pegan varios fragmentos en el
+         mismo correo, sus <style> conviven sin pisarse. -->
+    <mj-style>
+      @media only screen and (max-width:480px) {
+        .cierre-enalta-margen-mobile { width:24px !important; }
+        .cierre-enalta-firma-img table { margin:0 auto !important; }
+        .cierre-enalta-firma-img table td { width:128px !important; }
+        .cierre-enalta-firma-txt > table > tbody > tr > td { padding:20px 0px 0px 0px !important; }
+        .cierre-enalta-firma-txt div { text-align:center !important; }
+      }
+    </mj-style>
+  </mj-head>
+
+  <mj-body mj-class="bg-gris-claro" width="600px">
+    <!-- Header: logo abajo a la izquierda y forma decorativa pegada arriba y
+         al borde derecho (en mobile gana 24px de margen, como la referencia). -->
+    <mj-section mj-class="bg-vino" padding="0px" text-align="left">
+      <mj-column width="100%" padding="0px">
+        <mj-table padding="0px" width="100%" role="presentation">
+          <tr>
+            <td width="24" style="width:24px;"></td>
+            <td valign="bottom" align="left" height="62" style="height:62px;">
+              <img src="https://bcp-mid-stage13-res.adobe-campaign.com/res/tracking/02abeb1ef65067cb77690aef2607eaf6.png" alt="BCP Enalta" width="171" style="display:block;border:0;width:171px;height:auto;" />
+            </td>
+            <td valign="top" align="right">
+              <img src="https://bcp-mid-stage13-res.adobe-campaign.com/res/tracking/76f34506a138a4cb45a9e5774a2d01ca.png" alt="" width="144" height="62" style="display:block;border:0;width:144px;height:auto;" />
+            </td>
+            <td width="0" class="cierre-enalta-margen-mobile" style="width:0px;"></td>
+          </tr>
+        </mj-table>
+      </mj-column>
+    </mj-section>
+
+    <!-- 25px laterales = 24px de margen + 1px de borde del mismo color en la
+         referencia. -->
+    <mj-section mj-class="bg-vino" padding="21px 25px 1px 25px" text-align="left">
+      <mj-column width="100%" padding="0px">
+        <mj-text
+          mj-class="txt-blanco"
+          align="left"
+          font-family="Flexo, Arial, Helvetica, sans-serif"
+          font-size="14px"
+          line-height="20px"
+          padding="0px 0px 20px 0px"
+        >
+          Para mayor información puede comunicarse con su Asesor Financiero<br />
+          <span style="font-weight:700;">Nombres y Apellidos:</span>
+        </mj-text>
+        <mj-table
+          mj-class="txt-blanco"
+          font-family="Flexo, Arial, Helvetica, sans-serif"
+          font-size="14px"
+          line-height="16px"
+          padding="0px 0px 10px 0px"
+          width="100%"
+          role="presentation"
+        >
+          <tr>
+            <td width="32" valign="top" style="width:32px;">
+              <img src="https://bcp-mid-stage13-res.adobe-campaign.com/res/tracking/5266f28bd49b5af2adc0516baafc1c8b.png" alt="Correo electrónico" width="32" height="32" style="display:block;border:0;width:32px;height:32px;" />
+            </td>
+            <td width="10" style="width:10px;"></td>
+            <td style="font-weight:700;">consultasbcp@bcp.com.pe</td>
+          </tr>
+        </mj-table>
+        <mj-table
+          mj-class="txt-blanco"
+          font-family="Flexo, Arial, Helvetica, sans-serif"
+          font-size="14px"
+          line-height="20px"
+          padding="0px"
+          width="100%"
+          role="presentation"
+        >
+          <tr>
+            <td width="32" valign="top" style="width:32px;">
+              <img src="https://bcp-mid-stage13-res.adobe-campaign.com/res/tracking/c83c01b7814dfd6b24d6f3c99d6f79f4.png" alt="WhatsApp" width="32" height="32" style="display:block;border:0;width:32px;height:32px;" />
+            </td>
+            <td width="10" style="width:10px;"></td>
+            <td style="font-weight:700;">&lt;+51 965 573 492&gt;</td>
+          </tr>
+        </mj-table>
+      </mj-column>
+    </mj-section>
+
+    <!-- Firma: lado a lado en desktop; en mobile se apila y se centra. -->
+    <mj-section mj-class="bg-vino" padding="20px 24px 35px 24px" text-align="left">
+      <mj-column width="123px" padding="0px" vertical-align="middle">
+        <mj-image
+          src="https://bcp-mid-stage13-res.adobe-campaign.com/res/tracking/2ea9568452b43423ba6729c370bf9f10.png"
+          alt="Firma del Asesor Financiero"
+          width="123px"
+          align="left"
+          padding="0px"
+          css-class="cierre-enalta-firma-img"
+        />
+      </mj-column>
+      <mj-column
+        width="179px"
+        padding="0px 0px 0px 20px"
+        vertical-align="middle"
+        css-class="cierre-enalta-firma-txt"
+      >
+        <mj-text
+          mj-class="txt-blanco"
+          font-weight="700"
+          align="left"
+          font-family="Flexo, Arial, Helvetica, sans-serif"
+          font-size="14px"
+          line-height="16px"
+          padding="0px 0px 8px 0px"
+        >
+          Fiorella Pastor Vargas
+        </mj-text>
+        <mj-text
+          mj-class="txt-blanco"
+          align="left"
+          font-family="Flexo, Arial, Helvetica, sans-serif"
+          font-size="12px"
+          line-height="18px"
+          padding="0px"
+        >
+          Gerente de Área de Medios de Pago BCP Enalta
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

@@ -43,11 +43,52 @@ la izquierda, y heredar el centrado genera correcciones a mano en AED.
 Si un fragmento debe ir centrado, se escribe `text-align="center"` igual de
 explícito. La regla es **declararlo siempre**, no un valor fijo.
 
-## 3. Estilos por atributos nativos de MJML, nunca `<style>` ni clases externas
+## 3. Estilos inline; `<mj-style>` solo para media queries
 
-AED puede eliminar o reescribir los bloques `<style>` al guardar un fragmento, y
-las clases CSS externas simplemente no existen en su contexto. Todo estilo tiene
-que terminar **inline** en el HTML compilado.
+Todo estilo visual (colores, tipografía, espaciados) tiene que terminar
+**inline** en el HTML compilado. Lo único que va en `<mj-style>` son las
+**media queries** del responsive, porque no se pueden escribir inline.
+
+Por qué se permite ese `<style>`: los cierres de `references/`, que ya se usan
+en AED, llevan su `<style>` con media queries al principio del fragmento y
+funcionan. Además, sin él las columnas de MJML se apilan hasta en desktop,
+porque MJML deja su CSS de columnas en el `<head>` y el `<head>` no se pega en
+AED. Por eso `npm run build` emite los `<style>` del head **delante** del
+contenido: el `.html` de `dist/` se pega completo.
+
+Reglas para ese `<mj-style>`:
+
+- Solo `@media`. Nada que también se pueda resolver inline.
+- Clases con el nombre del fragmento como prefijo
+  (`.cierre-consumo-icono`, no `.icono`): si se pegan varios fragmentos en un
+  mismo correo, sus estilos conviven sin pisarse.
+- Sin `inline="inline"`: esa variante la inlinea MJML y no sirve para media
+  queries.
+
+```xml
+<mj-head>
+  <mj-style>
+    @media only screen and (max-width:480px) {
+      .cierre-enalta-firma-txt div { text-align:center !important; }
+    }
+  </mj-style>
+</mj-head>
+```
+
+Si un fragmento no cambia de layout en mobile, no lleva `<mj-style>`.
+
+### Filas ícono + texto: `mj-table`, no columnas
+
+Dos `mj-column` en una sección se apilan en mobile. Para un ícono al lado de
+un texto que tiene que seguir al lado en cualquier ancho, usar `mj-table` con
+el color por `mj-class` (ver `cierre-bex`). `mj-group` también evita el
+apilado, pero en mobile convierte los anchos en porcentajes y el ícono se
+achica.
+
+Si dentro de un `mj-table` hay **tablas anidadas**, llevan
+`color:inherit;font-family:inherit;font-size:inherit;line-height:inherit;`: sin
+doctype (modo quirks) las tablas no heredan esas propiedades y el texto sale
+negro a 16px.
 
 ```xml
 <!-- ✅ atributos nativos: MJML los compila a style inline -->
@@ -65,9 +106,9 @@ que terminar **inline** en el HTML compilado.
 
 Prohibido en fragmentos:
 
-- `<mj-style>` / `<style>`
+- `<mj-style>` / `<style>` para cualquier cosa que no sea una media query
 - `css-class` apuntando a hojas externas
-- `!important` y selectores CSS
+- `!important` y selectores CSS fuera de las media queries
 
 **Sí está permitido `mj-class`**: MJML lo resuelve en tiempo de compilación y el
 resultado queda inline, así que es seguro en AED. Es el mecanismo que usamos
@@ -235,9 +276,10 @@ que decide dónde queda la columna dentro de los 600px:
 (MJML trata `0` y `0px` como equivalentes; en este repo se escribe `0px`
 para que quede parejo con el resto de los paddings.)
 
-El resultado es un `<mjml>` válido de punta a punta, previsualizable solo. Al
-llevarlo a AED se copia únicamente lo que está dentro del `<body>` del HTML
-compilado (ver [`guia-aed.md`](guia-aed.md)).
+El resultado es un `<mjml>` válido de punta a punta. El `.html` que genera el
+build ya no es un documento completo sino el fragmento listo para pegar: los
+`<style>` y a continuación el contenido. Se copia **entero** a AED (ver
+[`guia-aed.md`](guia-aed.md)).
 
 ## 7. Imágenes
 

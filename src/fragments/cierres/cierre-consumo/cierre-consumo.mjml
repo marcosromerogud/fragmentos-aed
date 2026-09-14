@@ -1,0 +1,162 @@
+<mjml>
+  <mj-head>
+    <mj-include path="@partials/fonts.mjml" />
+    <mj-include path="@partials/colors.mjml" />
+    <!-- En mobile cada canal pasa de "ícono arriba, texto centrado" a una fila
+         con el ícono a la izquierda y el texto alineado a la izquierda. -->
+    <mj-style>
+      @media only screen and (max-width:480px) {
+        .cierre-consumo-sep { padding-bottom:15px !important; }
+        .cierre-consumo-col > table > tbody > tr > td { padding-left:0px !important; padding-right:0px !important; }
+        .cierre-consumo-icono { width:35% !important; max-width:85px !important; float:left; }
+        .cierre-consumo-texto { width:64% !important; float:left; }
+        .cierre-consumo-alto-auto { height:auto !important; }
+        .cierre-consumo-izq { text-align:left !important; padding-left:1px !important; }
+        .cierre-consumo-br-desktop { display:none !important; }
+        .cierre-consumo-lh-12 { line-height:12px !important; }
+      }
+    </mj-style>
+  </mj-head>
+
+  <mj-body mj-class="bg-gris-claro" width="600px">
+    <mj-section mj-class="bg-azul" padding="32px 24px 18px 24px" text-align="center">
+      <mj-column width="100%" padding="0px">
+        <mj-text
+          mj-class="txt-blanco"
+          align="center"
+          font-family="Flexo, Arial, Helvetica, sans-serif"
+          font-size="14px"
+          line-height="14px"
+          padding="0px"
+        >
+          ¿Necesitas más información?
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- Reparto de la referencia: 175 + 10 + 175 + 10 y la tercera columna
+         alineada a la derecha (175 al final de 552), así que el hueco entre la
+         2ª y la 3ª es de 17px, no parejo. En mobile se anula ese padding. -->
+    <mj-section mj-class="bg-azul" padding="0px 24px" text-align="center">
+      <mj-column width="185px" padding="0px 10px 0px 0px" css-class="cierre-consumo-sep cierre-consumo-col">
+        <mj-table
+          mj-class="txt-blanco"
+          font-family="Flexo, Arial, Helvetica, sans-serif"
+          font-size="12px"
+          line-height="20px"
+          padding="10px 5px"
+          width="100%"
+          role="presentation"
+        >
+          <tr>
+            <td>
+              <table class="cierre-consumo-icono" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;color:inherit;font-family:inherit;font-size:inherit;line-height:inherit;">
+                <tr>
+                  <td align="center"><img src="https://bcp-mid-stage13-res.adobe-campaign.com/res/tracking/c83c01b7814dfd6b24d6f3c99d6f79f4.png" alt="WhatsApp" width="32" height="32" style="display:inline-block;border:0;width:32px;height:32px;" /></td>
+                </tr>
+                <tr>
+                  <td height="15" class="cierre-consumo-alto-auto" style="height:15px;font-size:0px;line-height:0px;"></td>
+                </tr>
+              </table>
+              <table class="cierre-consumo-texto" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;color:inherit;font-family:inherit;font-size:inherit;line-height:inherit;">
+                <tr>
+                  <td align="center" class="cierre-consumo-izq" style="text-align:center;">Escribenos tus consultas vía WhatsApp al</td>
+                </tr>
+                <tr>
+                  <td height="14" style="height:14px;font-size:0px;line-height:0px;"></td>
+                </tr>
+                <tr>
+                  <td align="center" class="cierre-consumo-izq" style="text-align:center;font-weight:700;line-height:12px;">99-311-9898</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </mj-table>
+      </mj-column>
+
+      <mj-column width="185px" padding="0px 10px 0px 0px" css-class="cierre-consumo-sep cierre-consumo-col">
+        <mj-table
+          mj-class="txt-blanco"
+          font-family="Flexo, Arial, Helvetica, sans-serif"
+          font-size="12px"
+          line-height="20px"
+          padding="10px 5px"
+          width="100%"
+          role="presentation"
+        >
+          <tr>
+            <td>
+              <table class="cierre-consumo-icono" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;color:inherit;font-family:inherit;font-size:inherit;line-height:inherit;">
+                <tr>
+                  <td align="center"><img src="https://bcp-mid-stage13-res.adobe-campaign.com/res/tracking/3df28c9c05a34b9298a3dd3be0d61785.png" alt="Facebook" width="32" height="32" style="display:inline-block;border:0;width:32px;height:32px;" /></td>
+                </tr>
+                <tr>
+                  <td height="15" class="cierre-consumo-alto-auto" style="height:15px;font-size:0px;line-height:0px;"></td>
+                </tr>
+              </table>
+              <table class="cierre-consumo-texto" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;color:inherit;font-family:inherit;font-size:inherit;line-height:inherit;">
+                <tr>
+                  <td align="center" class="cierre-consumo-izq cierre-consumo-lh-12" style="text-align:center;">Búscanos en<br class="cierre-consumo-br-desktop" /> Facebook como</td>
+                </tr>
+                <tr>
+                  <td height="14" style="height:14px;font-size:0px;line-height:0px;"></td>
+                </tr>
+                <tr>
+                  <td align="center" class="cierre-consumo-izq" style="text-align:center;font-weight:700;line-height:12px;">Banco de Crédito BCP</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </mj-table>
+      </mj-column>
+
+      <mj-column width="182px" padding="0px 0px 0px 7px" css-class="cierre-consumo-col">
+        <mj-table
+          mj-class="txt-blanco"
+          font-family="Flexo, Arial, Helvetica, sans-serif"
+          font-size="12px"
+          line-height="20px"
+          padding="10px 5px"
+          width="100%"
+          role="presentation"
+        >
+          <tr>
+            <td>
+              <table class="cierre-consumo-icono" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;color:inherit;font-family:inherit;font-size:inherit;line-height:inherit;">
+                <tr>
+                  <td align="center"><img src="https://bcp-mid-stage13-res.adobe-campaign.com/res/tracking/623a650424407175eb6a9b36578af113.png" alt="Reclamos" width="32" height="32" style="display:inline-block;border:0;width:32px;height:32px;" /></td>
+                </tr>
+                <tr>
+                  <td height="15" class="cierre-consumo-alto-auto" style="height:15px;font-size:0px;line-height:0px;"></td>
+                </tr>
+              </table>
+              <table class="cierre-consumo-texto" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;color:inherit;font-family:inherit;font-size:inherit;line-height:inherit;">
+                <tr>
+                  <td align="center" class="cierre-consumo-izq" style="text-align:center;">Si tienes un reclamo, puedes<br /> hacerle seguimiento aquí:</td>
+                </tr>
+                <tr>
+                  <td height="14" style="height:14px;font-size:0px;line-height:0px;"></td>
+                </tr>
+                <tr>
+                  <td align="center" class="cierre-consumo-izq" style="text-align:center;font-weight:700;line-height:12px;">viabcp.com/ayuda-bcp</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </mj-table>
+      </mj-column>
+    </mj-section>
+
+    <mj-section mj-class="bg-azul" padding="8px 24px 14px 24px" text-align="center">
+      <mj-column width="100%" padding="0px">
+        <mj-image
+          src="https://bcp-mid-stage13-res.adobe-campaign.com/res/tracking/6847032b1a10c1b40aeb8d6ab2a868c3.png"
+          alt="Contigo BCP"
+          width="135px"
+          align="center"
+          padding="20px 0px 21px 0px"
+        />
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

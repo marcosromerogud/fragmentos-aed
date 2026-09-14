@@ -17,13 +17,21 @@
      Esbozo:
      1. npm run build
      2. Abrir dist/<categoria>/<fragmento>/<fragmento>.html
-     3. Copiar el contenido del <body> (no el documento completo)
+     3. Copiar el archivo entero
      4. En AED: ... -->
 
 ## Qué parte del HTML copiar
 
-<!-- PENDIENTE: confirmar si AED acepta el documento completo o solo el body,
-     y qué pasa con el <head> (estilos, mj-font). -->
+El `.html` de `dist/` se copia **entero**. El build ya lo deja armado como
+fragmento, igual que los cierres de `references/`: primero los `<style>` (las
+media queries del responsive) y después el contenido. No es un documento
+completo: no tiene `<html>`, `<head>` ni `<body>`.
+
+No copiar solo una parte: sin los `<style>` las columnas se apilan hasta en
+desktop.
+
+<!-- PENDIENTE: confirmar en AED que los <style> sobreviven al guardar el
+     fragmento, pegando uno de dist/ (las referencias sugieren que sí). -->
 
 ## Tipografía Flexo en la plantilla
 
@@ -50,7 +58,8 @@
 
 <!-- PENDIENTE: documentar aquí cada cosa que AED rompe, con el workaround.
      Hasta ahora identificado:
-     - Puede eliminar/reescribir bloques <style> -> por eso todo va inline
+     - El <head> no viaja con el fragmento -> el build pone los <style> delante
+       del contenido y todo lo que no es media query va inline
        (ver convenciones-mjml.md, regla 3). -->
 
 ## Checklist antes de publicar
@@ -61,7 +70,7 @@
 - [ ] El `.mjml` y el `.html` de `dist/` están commiteados y sincronizados
 - [ ] No quedan comentarios `PENDIENTE:` en el fragmento
 - [ ] Imágenes con `src` absoluto HTTPS y `alt` descriptivo
-- [ ] No hay bloques `<style>` ni clases CSS externas
+- [ ] El `<mj-style>`, si hay, tiene solo media queries con clases prefijadas por el nombre del fragmento
 - [ ] Copy revisado y aprobado por el área responsable
 - [ ] Links apuntan a producción y con el tracking correcto
 - [ ] Probado en Outlook, Gmail (web y app) y iOS Mail

@@ -1,0 +1,135 @@
+<mjml>
+  <mj-head>
+    <mj-breakpoint width="599px" />
+    <mj-font name="IBM Plex Sans" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" />
+    <mj-attributes>
+      <mj-all font-family="IBM Plex Sans, Arial, Helvetica, sans-serif" />
+      <mj-section padding="0px" />
+      <mj-column padding="0px" />
+      <mj-text padding="0px" />
+      <mj-image padding="0px" />
+    </mj-attributes>
+    <!-- Único bloque de estilo necesario: MJML ya trae "mobile-hide" nativo,
+         pero "mobile-only" (mostrar SOLO en mobile) no existe por defecto -->
+    <mj-style>
+      .mobile-only {
+        display: none !important;
+        max-height: 0;
+        overflow: hidden;
+        mso-hide: all;
+      }
+      @media only screen and (max-width:599px) {
+        .mobile-only {
+          display: block !important;
+          max-height: none !important;
+          overflow: visible !important;
+        }
+      }
+    </mj-style>
+  </mj-head>
+
+  <mj-body background-color="#f2f4f8" width="600px">
+    <mj-section background-color="#ffffff" padding="14px 25px 20px 25px">
+
+      <!-- Columna sello (solo desktop, se oculta completo en mobile) -->
+      <mj-column css-class="mobile-hide" width="100px" vertical-align="top">
+        <mj-image
+          src="https://bcp-mid-stage13-res.adobe-campaign.com/res/tracking/6afc13af52a3b989b84ec7976e945c19.png"
+          width="88px"
+          align="center"
+          alt=""
+        />
+      </mj-column>
+
+      <!-- Columna de contenido -->
+      <mj-column vertical-align="top">
+
+        <!-- ===== Cabecera MOBILE: sello chico + tasa + badge TCEA ===== -->
+        <mj-raw>
+          <div class="mobile-only" style="display:none;max-height:0;overflow:hidden;mso-hide:all;margin-bottom:15px;">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+              <tr>
+                <td width="60" valign="top" align="left">
+                  <img src="https://bcp-mid-stage13-res.adobe-campaign.com/res/tracking/6afc13af52a3b989b84ec7976e945c19.png" width="60" style="display:block;width:60px;border:0;" alt="" />
+                </td>
+                <td width="15">&nbsp;</td>
+                <td width="200" valign="top" align="left">
+                  <table width="200" cellpadding="0" cellspacing="0" border="0" role="presentation" style="font-family:Arial,Helvetica,sans-serif;">
+                    <tr>
+                      <td width="200" align="center">
+                        <img src="https://bcp-mid-stage13-res.adobe-campaign.com/res/tracking/0ed4aca6e0a94c6e940b139c335f8c63.png" width="200" height="30" style="display:block;width:200px;height:30px;border:0;" alt="" />
+                      </td>
+                    </tr>
+                    <tr><td height="4" style="font-size:6px;line-height:4px;">&nbsp;</td></tr>
+                    <tr>
+                      <td width="200" align="center">
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border:1px solid #000;border-radius:0 0 10px 10px;">
+                          <tr align="center">
+                            <td style="padding:5px 0 5px 47px;line-height:9px;mso-line-height-rule:exactly;">
+                              <div style="mso-line-height-rule:exactly;color:#000;text-align:right;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:700;line-height:13px;">&lt;%= targetData.tcea %&gt;%</div>
+                            </td>
+                            <td style="width:5px;">&nbsp;</td>
+                            <td style="padding:5px 47px 5px 0;line-height:9px;text-align:left;mso-line-height-rule:exactly;">
+                              <div style="font-size:9px;line-height:9px;font-family:'IBM Plex Sans','Segoe UI',Arial,sans-serif;">TCEA</div>
+                              <div style="font-size:9px;line-height:9px;font-family:'IBM Plex Sans','Segoe UI',Arial,sans-serif;">máxima</div>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </mj-raw>
+
+        <!-- ===== Cabecera DESKTOP: tasas + badge (oculta en mobile) ===== -->
+        <mj-raw>
+          <div class="mobile-hide">
+            <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:separate !important;">
+              <tr>
+                <td width="190" height="30" valign="top">
+                  <img src="https://bcp-mid-stage13-res.adobe-campaign.com/res/tracking/22f3296ca0860273ef273e2da56c6a1d.png" width="190" height="30" style="display:block;width:190px;height:30px;border:0;" alt="" />
+                </td>
+                <td width="106" height="30" valign="top">
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:separate !important;">
+                    <tr>
+                      <td colspan="2" width="76" height="0" style="border-bottom:2px solid #000;">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td height="24" align="center" style="font-family:'IBM Plex Sans','Segoe UI',Arial,sans-serif;">
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                          <tr>
+                            <td style="line-height:9px;">
+                              <div style="text-align:left;font-size:18px;font-weight:bold;color:#000;font-family:'IBM Plex Sans',sans-serif;line-height:9px;">&lt;%= targetData.tcea %&gt;%</div>
+                            </td>
+                            <td width="9">&nbsp;</td>
+                            <td style="line-height:9px;">
+                              <div style="font-size:9px;line-height:9px;text-align:left;font-family:'IBM Plex Sans','Segoe UI',Arial,sans-serif;">TCEA</div>
+                              <div style="font-size:9px;line-height:9px;text-align:left;font-family:'IBM Plex Sans','Segoe UI',Arial,sans-serif;">máxima</div>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr><td colspan="2" height="12" style="border-top:2px solid #000;">&nbsp;</td></tr>
+                  </table>
+                </td>
+                <td width="36" height="30" valign="top">
+                  <img src="https://bcp-mid-stage13-res.adobe-campaign.com/res/tracking/6af1d51bfc4de20e8640ca95513ea892.png" width="36" height="30" style="display:block;width:36px;height:30px;border:0;" alt="" />
+                </td>
+              </tr>
+            </table>
+          </div>
+        </mj-raw>
+
+        <!-- ===== Texto legal (siempre visible) ===== -->
+        <mj-text font-size="9px" line-height="16px" color="#202E44" align="justify" padding="10px 0 0 0">
+          <span style="font-weight:700;">La Tasa de Costo Efectivo Anual es referencial y está calculada con un interés de 30% sobre un monto de S/1,000 en un plazo de 12 meses; esto también incluye, Seguro de desgravamen mensual. Si te retrasas en el pago se te cobrará una tasa de interés moratorio de 12.51% en soles y 10.26% en dólares.</span>
+        </mj-text>
+
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

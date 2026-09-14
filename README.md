@@ -62,6 +62,10 @@ src/fragments/banners/banner-monto/banner-monto.mjml
   -> dist/banners/banner-monto/banner-monto.html
 ```
 
+Ese `.html` no es un documento completo: es el fragmento listo para pegar en
+AED, con los `<style>` del responsive primero y el contenido después. Se copia
+entero.
+
 El build falla (exit code 1) si un fragmento tiene MJML inválido, o si usa una
 `mj-class` que no está definida en los partials que incluye:
 
@@ -225,12 +229,18 @@ El alias lo resuelve un preprocesador definido en `mjml.config.js`.
   oficial. Falta validarlos contra el brandbook BCP y completar los que falten.
 - **Flexo no se va a ver hasta que los `.woff2` estén publicados en una URL
   HTTPS del CDN de BCP y el `@font-face` esté declarado en el `<head>` de la
-  plantilla de AED** (no puede ir en el fragmento: AED rompe los `<style>`).
+  plantilla de AED** (una sola vez ahí, no repetido en cada fragmento).
   Hasta entonces todo se renderiza en Arial. Detalle en
   `src/partials/fonts.mjml`.
 - `src/partials/social-links.mjml` vacío: faltan íconos, CDN y URLs oficiales.
   Mientras esté así **no se puede incluir** (rompe el build).
-- `banner-monto` es el único fragmento del repo por ahora.
+- Fragmentos existentes: `banners/banner-monto` y tres cierres
+  (`cierres/cierre-bex`, `cierres/cierre-enalta`, `cierres/cierre-consumo`),
+  normalizados a partir de `references/cierre/`. Sus imágenes usan las URLs
+  originales de un ambiente stage de Adobe Campaign
+  (`bcp-mid-stage13-res.adobe-campaign.com`), no el CDN definitivo de BCP —
+  migrar cuando exista. El contenido (textos, datos del asesor, placeholders)
+  se conserva tal cual viene en cada referencia, sin correcciones.
 - `docs/guia-aed.md` es un esqueleto por completar.
 - Sin integración con Adobe Campaign ni deploy automatizado (fuera de alcance
   por ahora).

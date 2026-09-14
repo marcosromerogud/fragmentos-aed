@@ -1,0 +1,75 @@
+<mjml>
+  <mj-head>
+    <mj-include path="@partials/fonts.mjml" />
+    <mj-include path="@partials/colors.mjml" />
+  </mj-head>
+
+  <mj-body mj-class="bg-gris-claro" width="600px">
+    <!-- 25px laterales = 24px de margen + 1px de borde del mismo color en la
+         referencia. Con 24px el texto corta en otra palabra. -->
+    <mj-section
+      mj-class="bg-azul-marino"
+      padding="36px 25px 36px 25px"
+      text-align="left"
+    >
+      <mj-column width="100%" padding="0px">
+        <mj-image
+          src="https://bcp-mid-stage13-res.adobe-campaign.com/res/tracking/2b32384d48fb2fb417a7dde7b9040bc3.png"
+          alt="BCP"
+          width="92px"
+          align="left"
+          padding="0px 0px 20px 0px"
+        />
+        <mj-text
+          mj-class="txt-blanco"
+          align="left"
+          font-family="Flexo, Arial, Helvetica, sans-serif"
+          font-size="14px"
+          line-height="24px"
+          padding="0px 0px 20px 0px"
+        >
+          Para cualquier consulta no dudes en comunicarte con tu Ejecutivo de la
+          Banca Exclusiva Digital al (01) 20-50-500:
+          <span style="font-weight:700;"><nombre y apellidos></nombre></span>
+        </mj-text>
+
+        <!-- Filas ícono + texto como tabla: así no se apilan en mobile y el
+             texto queda centrado verticalmente contra el ícono. -->
+        <mj-table
+          mj-class="txt-blanco"
+          font-family="Flexo, Arial, Helvetica, sans-serif"
+          font-size="12px"
+          line-height="20px"
+          padding="0px 0px 14px 0px"
+          width="100%"
+          role="presentation"
+        >
+          <tr>
+            <td width="32" valign="top" style="width:32px;">
+              <img src="https://bcp-mid-stage13-res.adobe-campaign.com/res/tracking/5266f28bd49b5af2adc0516baafc1c8b.png" alt="Correo electrónico" width="32" height="32" style="display:block;border:0;width:32px;height:32px;" />
+            </td>
+            <td width="10" style="width:10px;"></td>
+            <td style="font-weight:700;">&lt;%= targetData.DESCORREOEENNPRINCIPAL %&gt;</td>
+          </tr>
+        </mj-table>
+        <mj-table
+          mj-class="txt-blanco"
+          font-family="Flexo, Arial, Helvetica, sans-serif"
+          font-size="12px"
+          line-height="20px"
+          padding="0px"
+          width="100%"
+          role="presentation"
+        >
+          <tr>
+            <td width="32" valign="top" style="width:32px;">
+              <img src="https://bcp-mid-stage13-res.adobe-campaign.com/res/tracking/2caaa49d911f85ce56fd52b82a3a5998.png" alt="Celular" width="32" height="32" style="display:block;border:0;width:32px;height:32px;" />
+            </td>
+            <td width="10" style="width:10px;"></td>
+            <td style="font-weight:700;">&lt;%= targetData.DESCELULAREENNPRINCIPAL %&gt;</td>
+          </tr>
+        </mj-table>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
