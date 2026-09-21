@@ -30,7 +30,7 @@
         >
           Para cualquier consulta no dudes en comunicarte con tu Ejecutivo de la
           Banca Exclusiva Digital al (01) 20-50-500:
-          <span style="font-weight:700;"><nombre y apellidos></nombre></span>
+          <span style="font-weight: 700"><nombre y apellidos></nombre></span>
         </mj-text>
 
         <!-- Filas ícono + texto como tabla: así no se apilan en mobile y el
@@ -45,11 +45,19 @@
           role="presentation"
         >
           <tr>
-            <td width="32" valign="top" style="width:32px;">
-              <img src="https://bcp-mid-stage13-res.adobe-campaign.com/res/tracking/5266f28bd49b5af2adc0516baafc1c8b.png" alt="Correo electrónico" width="32" height="32" style="display:block;border:0;width:32px;height:32px;" />
+            <td width="32" valign="top" style="width: 32px">
+              <img
+                src="https://bcp-mid-stage13-res.adobe-campaign.com/res/tracking/5266f28bd49b5af2adc0516baafc1c8b.png"
+                alt="Correo electrónico"
+                width="32"
+                height="32"
+                style="display: block; border: 0; width: 32px; height: 32px"
+              />
             </td>
-            <td width="10" style="width:10px;"></td>
-            <td style="font-weight:700;">&lt;%= targetData.DESCORREOEENNPRINCIPAL %&gt;</td>
+            <td width="10" style="width: 10px"></td>
+            <td style="font-weight: 700">
+              &lt;%= targetData.DESCORREOEENNPRINCIPAL %&gt;
+            </td>
           </tr>
         </mj-table>
         <mj-table
@@ -62,11 +70,19 @@
           role="presentation"
         >
           <tr>
-            <td width="32" valign="top" style="width:32px;">
-              <img src="https://bcp-mid-stage13-res.adobe-campaign.com/res/tracking/2caaa49d911f85ce56fd52b82a3a5998.png" alt="Celular" width="32" height="32" style="display:block;border:0;width:32px;height:32px;" />
+            <td width="32" valign="top" style="width: 32px">
+              <img
+                src="https://bcp-mid-stage13-res.adobe-campaign.com/res/tracking/2caaa49d911f85ce56fd52b82a3a5998.png"
+                alt="Celular"
+                width="32"
+                height="32"
+                style="display: block; border: 0; width: 32px; height: 32px"
+              />
             </td>
-            <td width="10" style="width:10px;"></td>
-            <td style="font-weight:700;">&lt;%= targetData.DESCELULAREENNPRINCIPAL %&gt;</td>
+            <td width="10" style="width: 10px"></td>
+            <td style="font-weight: 700">
+              &lt;%= targetData.DESCELULAREENNPRINCIPAL %&gt;
+            </td>
           </tr>
         </mj-table>
       </mj-column>
