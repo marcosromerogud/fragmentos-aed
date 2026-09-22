@@ -202,7 +202,8 @@ fragmentos quedaron afectados y si alguno cambió de una forma que no esperabas.
   en un fragmento y borde en otro. El prefijo indica el atributo: `bg-` →
   `background-color`, `txt-` → `color`, `borde-` → `border`. Están solo las
   variantes en uso; agregar una que falte es una línea. Los valores salieron de
-  `banner-monto` y **no están validados contra el brandbook** todavía.
+  `banner-monto` y de la familia `banner-destacado`, y **no están validados
+  contra el brandbook** todavía.
 - `social-links.mjml` — **vacío a propósito**: íconos, CDN y URLs todavía no
   están definidos, y no tiene sentido versionar valores inventados que alguien
   podría copiar creyendo que están aprobados.
@@ -234,13 +235,22 @@ El alias lo resuelve un preprocesador definido en `mjml.config.js`.
   `src/partials/fonts.mjml`.
 - `src/partials/social-links.mjml` vacío: faltan íconos, CDN y URLs oficiales.
   Mientras esté así **no se puede incluir** (rompe el build).
-- Fragmentos existentes: `banners/banner-monto` y tres cierres
+- Fragmentos existentes: `banners/banner-monto`, la familia
+  `banners/banner-destacado-*` (seis variantes) y tres cierres
   (`cierres/cierre-bex`, `cierres/cierre-enalta`, `cierres/cierre-consumo`),
-  normalizados a partir de `references/cierre/`. Sus imágenes usan las URLs
+  normalizados a partir de `references/`. Sus imágenes usan las URLs
   originales de un ambiente stage de Adobe Campaign
   (`bcp-mid-stage13-res.adobe-campaign.com`), no el CDN definitivo de BCP —
   migrar cuando exista. El contenido (textos, datos del asesor, placeholders)
   se conserva tal cual viene en cada referencia, sin correcciones.
+- Las referencias de `references/banner/` llegaron con el prefijo `[Temporal]`
+  en el nombre: confirmar con diseño que esas seis variantes son las
+  definitivas antes de difundir los fragmentos.
+- Los `banner-destacado-*` no replican el `<v:roundrect>` de VML de sus
+  referencias, así que en **Outlook de escritorio las esquinas se ven rectas**.
+  Ese VML lleva la altura de la caja escrita a mano y se rompe apenas cambia el
+  copy. Si diseño pide las esquinas redondeadas también ahí, hay que volver a
+  meterlo y recalcular la altura para cada texto.
 - `docs/guia-aed.md` es un esqueleto por completar.
 - Sin integración con Adobe Campaign ni deploy automatizado (fuera de alcance
   por ahora).

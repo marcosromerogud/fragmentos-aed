@@ -30,8 +30,56 @@ bruto), así que el peso de cada fragmento cuenta para el correo completo.
 
 ### Agregado
 
+- Familia `banners/banner-destacado`: seis variantes del mismo bloque de
+  ícono + título + texto, reconstruidas desde `references/banner/`.
+
+  | | Ícono en fila (mobile) | Ícono apilado (mobile) |
+  |---|---|---|
+  | Fondo blanco | `banner-destacado-fondo-blanco` | `banner-destacado-vertical-fondo-blanco` |
+  | Sin bordes | `banner-destacado-sin-bordes` | `banner-destacado-vertical-sin-bordes` |
+  | Full width | `banner-destacado-full-width` | `banner-destacado-vertical-full-width` |
+
+- Referencias originales en `references/banner/` (las seis, con el prefijo
+  `[Temporal]` que traían).
+- Colores nuevos en `src/partials/colors.mjml`: `bg-celeste-claro` (`#F5F8FF`),
+  `borde-azul-medio` (`#3D77FF`) y `borde-celeste-claro` (`1px solid #F5F8FF`).
 - `npm run pesos`: tabla de peso referencia vs. MJML para esta bitácora.
 - `CHANGELOG.md`.
+
+### Criterios
+
+- El copy se conserva **tal cual la referencia** (`Participa por 1 Kit Apple`),
+  aunque sea de una campaña concreta y haya que reemplazarlo en cada uso.
+- Las seis se compararon contra su referencia en el navegador a **600px y
+  375px**, midiendo posición y ancho del ícono y del texto y altura del bloque:
+  coinciden exactamente en los dos anchos. Dos medidas salieron de esa
+  comparación y no del markup: la celda del ícono mide **124px** en desktop
+  (declara 104 + 20 de padding) y **92px** / **112px** en mobile.
+- Las tres variantes en fila usan `mj-group`, que `docs/convenciones-mjml.md`
+  desaconseja para filas de ícono + texto porque achica el ícono. Acá eso es
+  justo lo que hace la referencia, y la media query fija el tamaño final.
+- **No se replicó el `<v:roundrect>` de VML** que las referencias usaban para
+  redondear las esquinas en Outlook de escritorio: lleva la altura de la caja
+  escrita a mano (`height:115pt`) y se rompe apenas cambia el copy. En Outlook
+  las esquinas quedan rectas; el color y el borde, correctos.
+
+### Peso: referencia → MJML
+
+| Fragmento | Bruto | Compacto | Gzip | CSS | Tablas |
+|---|---|---|---|---|---|
+| `banners/banner-destacado-fondo-blanco` | 4.3 KB → 8.6 KB (+99%) | 4.2 KB → 6.7 KB (+60%) | 1.5 KB → 1.6 KB (+9%) | 0.4 KB → 2.3 KB | 10 → 12 |
+| `banners/banner-destacado-sin-bordes` | 4.3 KB → 8.6 KB (+99%) | 4.2 KB → 6.7 KB (+60%) | 1.5 KB → 1.6 KB (+10%) | 0.4 KB → 2.3 KB | 10 → 12 |
+| `banners/banner-destacado-full-width` | 3.9 KB → 7.3 KB (+89%) | 3.7 KB → 5.7 KB (+52%) | 1.4 KB → 1.5 KB (+7%) | 0.4 KB → 2.1 KB | 8 → 9 |
+| `banners/banner-destacado-vertical-fondo-blanco` | 4.3 KB → 7.9 KB (+84%) | 4.1 KB → 6.1 KB (+49%) | 1.4 KB → 1.4 KB (+1%) | 0.4 KB → 1.8 KB | 10 → 11 |
+| `banners/banner-destacado-vertical-sin-bordes` | 4.3 KB → 7.9 KB (+83%) | 4.1 KB → 6.1 KB (+48%) | 1.4 KB → 1.5 KB (+2%) | 0.4 KB → 1.8 KB | 10 → 11 |
+| `banners/banner-destacado-vertical-full-width` | 4.3 KB → 6.6 KB (+55%) | 4.1 KB → 5.1 KB (+24%) | 1.4 KB → 1.4 KB (-5%) | 0.4 KB → 1.6 KB | 10 → 8 |
+
+Lectura: **estos fragmentos pesan más que su referencia**, al revés que los
+cierres. No es una regresión: las referencias de banner ya venían compactas y
+casi sin CSS (0.4 KB), así que no había CSS global de AED que sacar, y MJML
+suma el suyo propio (clases de columna, media queries, soporte Outlook y
+Mozilla). En **gzip**, que es lo que viaja, la diferencia va de -5% a +10%: en
+la práctica, lo mismo. Lo que se gana acá es mantenimiento, no bytes.
 
 ## [1.0.0] — 2026-09-14
 

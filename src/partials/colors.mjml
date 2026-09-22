@@ -32,6 +32,8 @@
   <!-- la tarjeta blanca del contenido -->
   <mj-class name="bg-celeste" background-color="#EAF1FB" />
   <!-- celeste de bloques destacados -->
+  <mj-class name="bg-celeste-claro" background-color="#F5F8FF" />
+  <!-- celeste casi blanco de los banners destacados -->
   <mj-class name="bg-azul" background-color="#002A8D" />
   <!-- mismo azul que txt-azul, ahora de fondo: cierre-consumo -->
   <mj-class name="bg-azul-marino" background-color="#001F5A" />
@@ -49,4 +51,8 @@
 
   <!-- Bordes -->
   <mj-class name="borde-azul-claro" border="1px solid #70A9FF" />
+  <mj-class name="borde-azul-medio" border="1px solid #3D77FF" />
+  <!-- banner destacado con fondo blanco -->
+  <mj-class name="borde-celeste-claro" border="1px solid #F5F8FF" />
+  <!-- mismo color que bg-celeste-claro: el borde solo iguala la altura -->
 </mj-attributes>
