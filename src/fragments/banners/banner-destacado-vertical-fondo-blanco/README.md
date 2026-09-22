@@ -10,9 +10,8 @@ Reconstruido a partir de:
 
 `references/banner/[Temporal] BCP - Banner destacado - Vertical - Fondo Blanco.html`
 
-Comparado contra esa referencia en el navegador a **600px y 375px**: la posición
-y el ancho del ícono y del texto, y la altura del bloque, coinciden exactamente
-en los dos anchos.
+La implementación conserva el aspecto de la referencia a **600px y 375px** y
+normaliza los paddings laterales para que sean simétricos.
 
 ## Archivos
 
@@ -47,17 +46,20 @@ Adobe Campaign.
 
 - `mj-wrapper` con los 40px laterales, adentro el `mj-section` con la caja
   (520px), y dos `mj-column`: ícono (124px) y texto (394px).
-- Los **124px** del ícono son los 104px que declara la celda de la referencia
-  más sus 20px de padding izquierdo. Está medido sobre la referencia en el
-  navegador, no deducido del markup: la celda declara 104 y el navegador la
-  renderiza a 124.
-- Los anchos de columna van en px explícitos porque MJML le da 50% a la columna
-  que no lo declara.
+- El ícono usa 12px a izquierda y derecha dentro de su columna; título y cuerpo
+  también usan 12px a ambos lados. Los paddings laterales quedan simétricos.
 - Sin `mj-group`: por debajo de los 600px las columnas se apilan solas y la
   media query las centra.
 - En mobile (hasta 599px, el corte de la referencia): el ícono **se apila**
   sobre el texto y los dos quedan centrados. El ícono se mantiene en 100px, no
   se achica.
+
+## Al romper el fragmento en AED
+
+Si AED elimina todos los bloques `<style>`, las columnas conservan `width:100%`
+inline: el ícono queda apilado sobre el texto y el contenido sigue legible. Se
+pierden el centrado y el ajuste fino de padding mobile, pero no el layout base
+ni la capacidad del texto de fluir.
 
 Colores, todos vía `mj-class` de `@partials/colors.mjml`:
 

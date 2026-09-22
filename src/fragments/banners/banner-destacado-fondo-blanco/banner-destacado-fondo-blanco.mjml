@@ -5,24 +5,20 @@
     <!-- Mobile hasta 599px, como la referencia. MJML emite el corte de
          desktop en (breakpoint) y el de mobile en (breakpoint - 1). -->
     <mj-breakpoint width="600px" />
+    <!-- Mejora visual para compactar el bloque en mobile; no es un requisito:
+         el layout base ya funciona sin este <mj-style>. -->
     <mj-style>
       @media only screen and (max-width:599px) {
         .banner-destacado-fondo-blanco-marco > table > tbody > tr > td {
           padding-left: 16px !important;
           padding-right: 16px !important;
         }
-        .banner-destacado-fondo-blanco-icono { width: 92px !important; }
-        .banner-destacado-fondo-blanco-texto { width: calc(100% - 92px) !important; }
-        .banner-destacado-fondo-blanco-icono-img { padding: 12px 8px 12px 12px !important; }
-        .banner-destacado-fondo-blanco-icono-img img {
+        .banner-destacado-fondo-blanco-icono { width: 76px !important; }
+        .banner-destacado-fondo-blanco-icono img {
           width: 52px !important;
           height: auto !important;
         }
-        /* La tabla interna de mj-image conserva los 100px del desktop y
-           descentra el ícono; se la achica al tamaño de mobile. */
-        .banner-destacado-fondo-blanco-icono-img td { width: 52px !important; }
-        .banner-destacado-fondo-blanco-titulo { padding: 12px 12px 8px 0px !important; }
-        .banner-destacado-fondo-blanco-cuerpo { padding: 0px 12px 12px 0px !important; }
+        .banner-destacado-fondo-blanco-texto { padding: 12px !important; }
       }
     </mj-style>
   </mj-head>
@@ -36,67 +32,62 @@
       css-class="banner-destacado-fondo-blanco-marco"
       padding="0px 40px"
     >
-      <!-- El borde y el radio van en el mj-section porque envuelven a las dos
-           columnas; un mj-column solo alcanzaría a una. -->
+      <!-- El borde y el radio van en el mj-section porque así envuelven todo
+           el bloque: tanto la celda del ícono como la del texto. -->
       <mj-section
         mj-class="bg-blanco borde-azul-medio"
         border-radius="12px"
         padding="0px"
         text-align="left"
       >
-        <!-- mj-group: el ícono y el texto siguen en fila en mobile, como la
-             referencia. Los anchos de columna van en px explícitos porque
-             dentro de un grupo MJML reparte 50/50 al que no lo declara. -->
-        <mj-group>
-          <!-- 124px = los 104px que declara la celda de la referencia + sus 20px
-               de padding izquierdo. Medido sobre la referencia en el navegador. -->
-          <mj-column
-            css-class="banner-destacado-fondo-blanco-icono"
-            width="124px"
+        <mj-column width="100%" padding="0px">
+          <!-- Se usa mj-table para dejar fija la celda del ícono y fluida la
+               del texto: así la fila sobrevive aunque AED elimine todos los
+               <style> al romper (desvincular) el fragmento. Con mj-group y
+               columnas, MJML compilaba anchos porcentuales fijos inline que
+               no reflujaban. -->
+          <!-- 124px = los 104px que declara la celda de la referencia + sus
+               20px de padding izquierdo. Medido sobre la referencia en el navegador. -->
+          <!-- mj-table aplica un solo mj-class de color a toda la tabla y no
+               procesa mj-class dentro de su HTML crudo. El cuerpo toma el color
+               de la tabla y el título lo sobrescribe con el hex inline #002A8D.
+               Ver docs/convenciones-mjml.md, "Excepción acotada: título dentro
+               de mj-table". -->
+          <mj-table
+            mj-class="txt-azul-oscuro"
+            font-family="Flexo, Arial, Helvetica, sans-serif"
+            font-size="16px"
+            line-height="24px"
             padding="0px"
-            vertical-align="middle"
+            width="100%"
+            role="presentation"
           >
-            <mj-image
-              css-class="banner-destacado-fondo-blanco-icono-img"
-              src="https://bcp-mid-stage13-res.adobe-campaign.com/res/tracking/f2d9855c0b2c1f83f4228ab86be22acb.png"
-              alt="icono"
-              width="100px"
-              align="center"
-              padding="16px 0px 16px 20px"
-            />
-          </mj-column>
-          <mj-column
-            css-class="banner-destacado-fondo-blanco-texto"
-            width="394px"
-            padding="0px"
-            vertical-align="middle"
-          >
-            <mj-text
-              mj-class="txt-azul"
-              css-class="banner-destacado-fondo-blanco-titulo"
-              align="left"
-              font-family="Flexo, Arial, Helvetica, sans-serif"
-              font-weight="700"
-              font-size="20px"
-              line-height="28px"
-              padding="16px 20px 8px 12px"
-            >
-              Participa por 1 Kit Apple
-            </mj-text>
-            <mj-text
-              mj-class="txt-azul-oscuro"
-              css-class="banner-destacado-fondo-blanco-cuerpo"
-              align="left"
-              font-family="Flexo, Arial, Helvetica, sans-serif"
-              font-weight="400"
-              font-size="16px"
-              line-height="24px"
-              padding="0px 20px 16px 12px"
-            >
-              Recuerda que también puedes solicitar tu tarjeta desde la<span style="font-weight: 700"> App Banca Móvil BCP</span> en la sección <span style="font-weight: 700">Para Ti.</span>
-            </mj-text>
-          </mj-column>
-        </mj-group>
+            <tr>
+              <td
+                class="banner-destacado-fondo-blanco-icono"
+                width="124"
+                valign="middle"
+                align="center"
+                style="width: 124px"
+              >
+                <img
+                  src="https://bcp-mid-stage13-res.adobe-campaign.com/res/tracking/f2d9855c0b2c1f83f4228ab86be22acb.png"
+                  alt="icono"
+                  width="100"
+                  style="display: block; border: 0; width: 100px; height: auto"
+                />
+              </td>
+              <td
+                class="banner-destacado-fondo-blanco-texto"
+                valign="middle"
+                style="padding: 16px 12px; word-break: normal; overflow-wrap: break-word; white-space: normal; hyphens: none"
+              >
+                <p style="color:#002A8D;font-size:20px;line-height:28px;font-weight:700;margin:0px 0px 8px">Participa por 1 Kit Apple</p>
+                Recuerda que también puedes solicitar tu tarjeta desde la<span style="font-weight: 700"> App Banca Móvil BCP</span> en la sección <span style="font-weight: 700">Para Ti.</span>
+              </td>
+            </tr>
+          </mj-table>
+        </mj-column>
       </mj-section>
     </mj-wrapper>
   </mj-body>

@@ -5,6 +5,8 @@
     <!-- Mobile hasta 599px, como la referencia. MJML emite el corte de
          desktop en (breakpoint) y el de mobile en (breakpoint - 1). -->
     <mj-breakpoint width="600px" />
+    <!-- Mejora visual para ajustar espaciados y centrar el bloque en mobile;
+         no es un requisito: el layout base funciona sin este <mj-style>. -->
     <mj-style>
       @media only screen and (max-width:599px) {
         .banner-destacado-vertical-fondo-blanco-marco > table > tbody > tr > td {
@@ -55,7 +57,7 @@
             alt="icono"
             width="100px"
             align="center"
-            padding="16px 0px 16px 20px"
+            padding="16px 12px 16px 12px"
           />
         </mj-column>
         <mj-column
@@ -72,7 +74,7 @@
             font-weight="700"
             font-size="20px"
             line-height="28px"
-            padding="16px 20px 8px 12px"
+            padding="16px 12px 8px 12px"
           >
             Participa por 1 Kit Apple
           </mj-text>
@@ -84,7 +86,7 @@
             font-weight="400"
             font-size="16px"
             line-height="24px"
-            padding="0px 20px 16px 12px"
+            padding="0px 12px 16px 12px"
           >
             Recuerda que también puedes solicitar tu tarjeta desde la<span style="font-weight: 700"> App Banca Móvil BCP</span> en la sección <span style="font-weight: 700">Para Ti.</span>
           </mj-text>

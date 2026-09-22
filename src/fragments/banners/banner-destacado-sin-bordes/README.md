@@ -11,9 +11,8 @@ Reconstruido a partir de:
 
 `references/banner/[Temporal] BCP - Banner destacado - Sin bordes.html`
 
-Comparado contra esa referencia en el navegador a **600px y 375px**: la posición
-y el ancho del ícono y del texto, y la altura del bloque, coinciden exactamente
-en los dos anchos.
+La implementación conserva el aspecto de la referencia a **600px y 375px** y
+normaliza los paddings laterales para que sean simétricos.
 
 ## Archivos
 
@@ -46,29 +45,30 @@ Adobe Campaign.
 
 ## Estructura
 
-- `mj-wrapper` con los 40px laterales, adentro el `mj-section` con la caja
-  (520px), y dos `mj-column`: ícono (124px) y texto (394px).
-- Los **124px** del ícono son los 104px que declara la celda de la referencia
-  más sus 20px de padding izquierdo. Está medido sobre la referencia en el
-  navegador, no deducido del markup: la celda declara 104 y el navegador la
-  renderiza a 124.
-- Los anchos de columna van en px explícitos porque MJML le da 50% a la columna
-  que no lo declara.
-- Con `mj-group`, que es lo que impide que las columnas se apilen en mobile.
-  `docs/convenciones-mjml.md` desaconseja `mj-group` para filas de ícono + texto
-  porque achica el ícono; acá eso es justo lo que hace la referencia, y la media
-  query fija el tamaño final en vez de dejarlo librado al porcentaje.
-- En mobile (hasta 599px, el corte de la referencia): el ícono **se queda en
-  fila** con el texto y baja a 52px, en una celda de 92px.
+- `mj-wrapper` conserva la caja de 520px y contiene una sola columna al 100%.
+- La fila ícono + texto es un `mj-table`: la celda del ícono mide 124px y la
+  celda de texto no declara ancho, por lo que ocupa el espacio restante.
+- El ícono queda centrado dentro de su celda y el texto usa 12px a ambos lados;
+  así los paddings laterales son simétricos.
+- La media query solo mejora el aspecto mobile: reduce la celda a 76px, el
+  ícono a 52px y el marco lateral a 16px. No sostiene el layout base.
 
-Colores, todos vía `mj-class` de `@partials/colors.mjml`:
+## Al romper el fragmento en AED
 
-| `mj-class` | Valor | Dónde |
+Si AED elimina todos los bloques `<style>`, la fila sigue siendo una tabla con
+ícono fijo y texto fluido. El ícono conserva su tamaño desktop y el marco sus
+40px, pero el texto se adapta al ancho disponible sin cortarse ni desbordarse.
+La media query perdida es solo una mejora de tamaño y espaciado.
+
+Colores vía `mj-class` de `@partials/colors.mjml`, salvo la excepción acotada
+del título dentro del HTML crudo de `mj-table`:
+
+| Mecanismo | Valor | Dónde |
 |---|---|---|
 | `bg-gris-claro` | `#F2F4F8` | `mj-body` |
 | `bg-celeste-claro` | `#F5F8FF` | `mj-section` (la caja) |
 | `borde-celeste-claro` | `1px solid #F5F8FF` | `mj-section` (la caja) |
-| `txt-azul` | `#002A8D` | el título |
+| Hex inline autorizado | `#002A8D` | el `<p>` del título |
 | `txt-azul-oscuro` | `#202E44` | el texto |
 
 ## Pendientes

@@ -132,6 +132,19 @@ el fragmento no se escribe un hex a mano:
 
 Se pueden encadenar varias separadas por espacio (`bg-celeste borde-azul-claro`).
 
+### Excepción acotada: título dentro de `mj-table`
+
+Se permite **un único hex inline por fragmento**, exclusivamente en el `<p>`
+del título que vive dentro del HTML crudo de un `mj-table`. `mj-table` aplica
+un solo `mj-class` de color a toda la tabla y no procesa `mj-class` dentro de
+ese HTML crudo; cuando el diseño necesita un color para el cuerpo y otro para
+el título, el cuerpo conserva su color por `mj-class` en `mj-table` y el `<p>`
+sobrescribe el del título con ese único hex.
+
+La excepción termina ahí: no habilita hex en otros elementos, otros estilos ni
+un segundo color inline. Todos los demás colores siguen saliendo de
+`src/partials/colors.mjml` mediante `mj-class`.
+
 ### Nombres: por color, no por uso
 
 Las clases se llaman como el color (`azul`, `celeste`, `gris-claro`), **nunca

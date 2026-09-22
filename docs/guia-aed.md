@@ -75,6 +75,7 @@ desktop.
 - [ ] Links apuntan a producción y con el tracking correcto
 - [ ] Probado en Outlook, Gmail (web y app) y iOS Mail
 - [ ] Se ve correctamente en mobile
+- [ ] Probado rompiendo (desvinculando) el fragmento en AED, antes de enviarlo a QA
 - [ ] Envío de prueba revisado antes del envío real
 
 ## Pruebas y previsualización
