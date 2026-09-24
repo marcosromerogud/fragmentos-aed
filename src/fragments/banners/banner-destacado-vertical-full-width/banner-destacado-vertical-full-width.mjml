@@ -32,14 +32,16 @@
              solas y la media query las centra, como la referencia. Los anchos
              van en px explícitos porque MJML reparte 50/50 al que no lo
              declara. -->
-        <!-- 124px = los 104px que declara la celda de la referencia + sus 20px
-             de padding izquierdo. Medido sobre la referencia en el navegador. -->
+        <!-- 141px internos = 29px de padding izquierdo en la celda de la
+             imagen + 100px de imagen + 12px de hueco hasta el texto; con el
+             borde izquierdo de 1px son 30px visibles desde el borde de la
+             caja hasta la imagen. -->
         <!-- En desktop el texto conserva 12px a la izquierda y lleva 25px a
              la derecha; con el borde suma 26px visibles. Al apilarse en
              mobile, ambos lados del texto pasan a 25px para equilibrarlo. -->
         <mj-column
           css-class="banner-destacado-vertical-full-width-icono"
-          width="124px"
+          width="141px"
           padding="0px"
           vertical-align="middle"
         >
@@ -49,12 +51,12 @@
             alt="icono"
             width="100px"
             align="center"
-            padding="16px 12px 16px 12px"
+            padding="16px 12px 16px 29px"
           />
         </mj-column>
         <mj-column
           css-class="banner-destacado-vertical-full-width-texto"
-          width="474px"
+          width="457px"
           padding="0px"
           vertical-align="middle"
         >

@@ -9,7 +9,10 @@
          el layout base ya funciona sin este <mj-style>. -->
     <mj-style>
       @media only screen and (max-width:599px) {
-        .banner-destacado-full-width-icono { width: 88px !important; }
+        .banner-destacado-full-width-icono {
+          width: 94px !important;
+          padding-left: 18px !important;
+        }
         .banner-destacado-full-width-icono img {
           width: 64px !important;
           height: auto !important;
@@ -35,8 +38,10 @@
              <style> al romper (desvincular) el fragmento. Con mj-group y
              columnas, MJML compilaba anchos porcentuales fijos inline que
              no reflujaban. -->
-        <!-- 124px = los 104px que declara la celda de la referencia + sus
-             20px de padding izquierdo. Medido sobre la referencia en el navegador. -->
+        <!-- 142px = 30px visibles desde el borde izquierdo hasta la imagen +
+             100px de imagen + 12px de hueco hasta la celda de texto. -->
+        <!-- En mobile la celda pasa a 94px: 18px hasta la imagen + 64px de
+             imagen + el mismo hueco de 12px hasta la celda de texto. -->
         <!-- Los 26px de padding derecho dejan 26px visibles hasta el borde
              de esta caja, que no lleva borde propio. A la izquierda se
              mantienen 12px para conservar el hueco con el ícono. -->
@@ -57,10 +62,10 @@
           <tr>
             <td
               class="banner-destacado-full-width-icono"
-              width="124"
+              width="142"
               valign="middle"
-              align="center"
-              style="width: 124px"
+              align="left"
+              style="width: 142px; padding-left: 30px"
             >
               <img
                 src="https://bcp-mid-stage13-res.adobe-campaign.com/res/tracking/f2d9855c0b2c1f83f4228ab86be22acb.png"
