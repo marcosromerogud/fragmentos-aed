@@ -18,7 +18,7 @@
           width: 52px !important;
           height: auto !important;
         }
-        .banner-destacado-fondo-blanco-texto { padding: 12px !important; }
+        .banner-destacado-fondo-blanco-texto { padding: 12px 17px 12px 12px !important; }
       }
     </mj-style>
   </mj-head>
@@ -48,6 +48,9 @@
                no reflujaban. -->
           <!-- 124px = los 104px que declara la celda de la referencia + sus
                20px de padding izquierdo. Medido sobre la referencia en el navegador. -->
+          <!-- Los 17px de padding derecho, sumados al borde de 1px, dejan
+               18px visibles hasta el borde de la caja. A la izquierda se
+               mantienen 12px para conservar el hueco con el ícono. -->
           <!-- mj-table aplica un solo mj-class de color a toda la tabla y no
                procesa mj-class dentro de su HTML crudo. El cuerpo toma el color
                de la tabla y el título lo sobrescribe con el hex inline #002A8D.
@@ -80,7 +83,7 @@
               <td
                 class="banner-destacado-fondo-blanco-texto"
                 valign="middle"
-                style="padding: 16px 12px; word-break: normal; overflow-wrap: break-word; white-space: normal; hyphens: none"
+                style="padding: 16px 17px 16px 12px; word-break: normal; overflow-wrap: break-word; white-space: normal; hyphens: none"
               >
                 <p style="color:#002A8D;font-size:20px;line-height:28px;font-weight:700;margin:0px 0px 8px">Participa por 1 Kit Apple</p>
                 Recuerda que también puedes solicitar tu tarjeta desde la<span style="font-weight: 700"> App Banca Móvil BCP</span> en la sección <span style="font-weight: 700">Para Ti.</span>

@@ -14,8 +14,8 @@
           padding-right: 16px !important;
         }
         .banner-destacado-vertical-sin-bordes-icono-img { padding: 16px 20px 0px 20px !important; }
-        .banner-destacado-vertical-sin-bordes-titulo { padding: 12px 20px 8px 20px !important; }
-        .banner-destacado-vertical-sin-bordes-cuerpo { padding: 0px 20px 16px 20px !important; }
+        .banner-destacado-vertical-sin-bordes-titulo { padding: 12px 17px 8px 17px !important; }
+        .banner-destacado-vertical-sin-bordes-cuerpo { padding: 0px 17px 16px 17px !important; }
         .banner-destacado-vertical-sin-bordes-titulo div,
         .banner-destacado-vertical-sin-bordes-cuerpo div { text-align: center !important; }
       }
@@ -45,6 +45,9 @@
              declara. -->
         <!-- 124px = los 104px que declara la celda de la referencia + sus 20px
              de padding izquierdo. Medido sobre la referencia en el navegador. -->
+        <!-- En desktop el texto conserva 12px a la izquierda y lleva 17px a
+             la derecha; con el borde suma 18px visibles. Al apilarse en
+             mobile, ambos lados del texto pasan a 17px para equilibrarlo. -->
         <mj-column
           css-class="banner-destacado-vertical-sin-bordes-icono"
           width="124px"
@@ -74,7 +77,7 @@
             font-weight="700"
             font-size="20px"
             line-height="28px"
-            padding="16px 12px 8px 12px"
+            padding="16px 17px 8px 12px"
           >
             Participa por 1 Kit Apple
           </mj-text>
@@ -86,7 +89,7 @@
             font-weight="400"
             font-size="16px"
             line-height="24px"
-            padding="0px 12px 16px 12px"
+            padding="0px 17px 16px 12px"
           >
             Recuerda que también puedes solicitar tu tarjeta desde la<span style="font-weight: 700"> App Banca Móvil BCP</span> en la sección <span style="font-weight: 700">Para Ti.</span>
           </mj-text>
